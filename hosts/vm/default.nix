@@ -11,6 +11,4 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "io";
-
-  networking.
 }

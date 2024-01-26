@@ -83,7 +83,7 @@
       modules =
         laptop
         ++ [
-          ./io
+          ./vm
           "${mod}/core/lanzaboote.nix"
 
           "${mod}/programs/hyprland.nix"
