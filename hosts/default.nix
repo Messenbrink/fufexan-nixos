@@ -89,6 +89,7 @@
           "${mod}/programs/hyprland.nix"
 
           "${mod}/services/gnome-services.nix"
+          "${mod}/services/location.nix"
 
           {
             home-manager = {
