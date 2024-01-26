@@ -77,5 +77,26 @@
           {home-manager.users.mihai.imports = homeImports.server;}
         ];
     };
+
+    vm = nixosSystem {
+      inherit specialArgs;
+      modules =
+        laptop
+        ++ [
+          ./io
+          "${mod}/core/lanzaboote.nix"
+
+          "${mod}/programs/hyprland.nix"
+
+          "${mod}/services/gnome-services.nix"
+
+          {
+            home-manager = {
+              users.mihai.imports = homeImports."mihai@io";
+              extraSpecialArgs = specialArgs;
+            };
+          }
+        ];
+    };
   };
 }
