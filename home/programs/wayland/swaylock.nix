@@ -11,7 +11,7 @@
     in {
       clock = true;
       font = "Inter";
-      image = config.theme.wallpaper;
+      #image = config.theme.wallpaper;
       indicator = true;
 
       bs-hl-color = c.error;
