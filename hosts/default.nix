@@ -1,3 +1,4 @@
+hj6svcfm969h0fmf5hfmgr8sa9vmh789dsl0nzdfqpc1mqy7h2";
 {
   self,
   inputs,
@@ -52,21 +53,22 @@
         ];
     };
 
-    rog = nixosSystem {
-      inherit specialArgs;
-      modules =
-        laptop
-        ++ [
-          ./rog
-          "${self}/system/core/lanzaboote.nix"
-          "${self}/system/programs/gamemode.nix"
+    # rog = nixosSystem {
+    #   inherit specialArgs;
+    #   modules =
+    #     laptop
+    #     ++ [
+    #       ./rog
+    #       "${mod}/core/lanzaboote.nix"
 
-          "${self}/system/programs/hyprland.nix"
-          "${self}/system/programs/steam.nix"
+    #       "${mod}/programs/gamemode.nix"
+    #       "${mod}/programs/hyprland.nix"
+    #       "${mod}/programs/steam.nix"
 
-          {home-manager.users.mihai.imports = homeImports."mihai@rog";}
-        ];
-    };
+    #       "${mod}/services/kmonad"
+    #       {home-manager.users.mihai.imports = homeImports."mihai@rog";}
+    #     ];
+    # };
 
     kiiro = nixosSystem {
       inherit specialArgs;
