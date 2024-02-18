@@ -47,22 +47,22 @@
       };
     };
 
-    linux-enable-ir-emitter = {
-      enable = true;
-      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
-    };
+    # linux-enable-ir-emitter = {
+    #   enable = true;
+    #   package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
+    # };
 
-    kmonad.keyboards = {
-      io = {
-        name = "io";
-        config = builtins.readFile "${self}/system/services/kmonad/main.kbd";
-        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
-        defcfg = {
-          enable = true;
-          fallthrough = true;
-          allowCommands = false;
-        };
-      };
-    };
+    # kmonad.keyboards = {
+    #   io = {
+    #     name = "io";
+    #     config = builtins.readFile "${self}/system/services/kmonad/main.kbd";
+    #     device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+    #     defcfg = {
+    #       enable = true;
+    #       fallthrough = true;
+    #       allowCommands = false;
+    #     };
+    #   };
+    # };
   };
 }

@@ -4,32 +4,27 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "virtio_pci" "sd_mod" "virtio_blk"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = ["subvol=root" "noatime" "compress=zstd"];
+    device = "/dev/disk/by-uuid/3918a8a1-d4d0-4ab3-91fd-8c9735b4a3c0";
+    fsType = "ext4";
   };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = ["subvol=home" "noatime" "compress=zstd"];
-  };
+  boot.initrd.luks.devices."luks-a318bf67-269b-4916-b7d9-7ef940dc513e".device = "/dev/disk/by-uuid/a318bf67-269b-4916-b7d9-7ef940dc513e";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI";
+    device = "/dev/disk/by-uuid/376C-4A1F";
     fsType = "vfat";
   };
 
